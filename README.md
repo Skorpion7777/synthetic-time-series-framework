@@ -32,11 +32,22 @@ The Datasets used are the following from the [ECG PhysioNet 2021 Challenge](http
 5. Georgia database
 6. An undisclosed American database
 
-Alternatively, the processed dataset can be loaded via my (Drive)[https://drive.google.com/drive/folders/1LQZEKvy_Xt_VhwqyQXXpwzrfPWQYEG91?usp=drive_link]
+Alternatively, the processed dataset can be loaded via my [Drive](https://drive.google.com/drive/folders/1LQZEKvy_Xt_VhwqyQXXpwzrfPWQYEG91?usp=drive_link)
 
 ### Anonymized Dataset
 
 ### Synthetic Dataset
+We can train the dataset using:
+```bash
+python mitbih_Train_CGAN.py
+```
+This Python file is a pre-configured training command with all arguments in place. Check out the file for details. Depending on computational ressources it is especially usefull to adjust the gen_bs, dis_bs and batch_size arguments. It generates a checkpoint file in the logs, which is our trained model and we can use down the line.
+Later we can simply generate synthetic data using such a command:
+
+```bash
+syn_mitbih(n_samples=800, reshape=True)
+```
+Some transformation is done on it to be able to export it as a csv and use it for later evaluation down the line.
 
 ### Visual Evaluation
 

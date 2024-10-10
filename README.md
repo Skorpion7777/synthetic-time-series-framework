@@ -1,1 +1,0 @@
-# synthetic-time-series-framework

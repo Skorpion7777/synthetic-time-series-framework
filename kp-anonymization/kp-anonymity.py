@@ -619,11 +619,11 @@ def main_kapra(k_value=None, p_value=None, paa_value=None, dataset_path=None, ou
         columns = list(time_series.columns)
         time_series_index = columns.pop(0)  # remove product code
         '''
-        time_series = pd.read_csv(dataset_path)
+        time_series = pd.read_pickle(dataset_path)
 
         # get columns name
         columns = list(time_series.columns)
-        time_series_index = columns.pop(0)  # remove product code
+        time_series_index = columns.copy()
         
         time_series_dict = dict()
         

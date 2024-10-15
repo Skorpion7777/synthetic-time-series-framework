@@ -35,6 +35,15 @@ The Datasets used are the following from the [ECG PhysioNet 2021 Challenge](http
 Alternatively, the processed dataset can be loaded via my [Drive](https://drive.google.com/drive/folders/1LQZEKvy_Xt_VhwqyQXXpwzrfPWQYEG91?usp=drive_link)
 
 ### Anonymized Dataset
+We (k,P)-anymize the Dtaset with this command:
+
+```bash
+python kp-anonymity.py algorithm k_value p_value paa_value dataset_path dataset_output_path
+```
+the choice of k,p, and paa value is explained in the paper. It is advisable to create a Datasets directory to store the sensitive and anonymized datasets in it.
+
+It is important to note, that the data loaded was always min-max normalized, because the original k,P-anonymity implementation didn't support negative values. To better understand the process in the thesis denormalize.py demonstrates, how the dataset would looklike if it would be denormalized afterwards. This is not used further, as it is more convinient to work on the normalized dataset. Also, (k,P)-anonymity creates Intervalls e.g. [0.1 - 0.3], however it is difficult for us to use them down the line. Therefore descale_expl.py computes the median for each intervall, creating a more strict suppression, but allowing us to better work with the dataset. Finally, the visual_comp notebook looks at the anonymized dataset we have created and compares a random anonymized time series against a sensitive one
+
 
 ### Synthetic Dataset
 We can train the dataset using:
